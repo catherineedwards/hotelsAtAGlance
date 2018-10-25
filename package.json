@@ -12,7 +12,11 @@
   },
   "dependencies": {
     "express": "^4.16.2",
+<<<<<<< HEAD
     "express-handlebars": "^3.0.0"
+=======
+    "express-handlebars":"^3.0.0"
+>>>>>>> cathy2
   },
   "devDependencies": {
     "jest": "^22.0.6",
@@ -20,8 +24,12 @@
     "supertest": "^3.1.0"
   },
   "jest": {
+<<<<<<< HEAD
     "watchPathIgnorePatterns": [
       "data.json"
     ]
+=======
+    "watchPathIgnorePatterns": ["data.json"]
+>>>>>>> cathy2
   }
 }
