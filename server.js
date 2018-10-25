@@ -16,4 +16,7 @@ server.set("view engine", "hbs");
 // server.use(express.urlencoded({extended:false}));
 // server.use(routes);
 
+server.get('/', (req, res) => res.send('Hello World!'))
+
+
 module.exports = server;
