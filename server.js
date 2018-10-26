@@ -18,21 +18,18 @@ const homePage = {
   list: ""
 };
 
-
+server.use(express.urlencoded({ extended: true }));
 
 server.get("/", (req, res) => res.render("hotel", homePage));
 
-server.get("/hotel1", (req, res) => res.render("hotel1", homePage));
-server.post('/hotel1', (req, res) => {
-res.send('Thank you for your review')});
+server.get("/hotel/:id", (req, res) =>
+  res.render("hotel" + req.params.id, homePage)
+);
+server.post("/hotel/:id", (req, res) => {
+  let answers = req.body;
+  answers.hotelId = req.params.id;
+  console.log(answers);
+  res.send("Thank you for your review");
+});
 
-server.get("/hotel2", (req, res) => res.render("hotel2", homePage));
-server.post('/hotel2', (req, res) => {
-res.send('Thank you for your review')});
-
-server.get("/hotel3", (req, res) => res.render("hotel3", homePage));
-server.post('/hotel3', (req, res) => {
-res.send('Thank you for your review')});
-
-module.exports = server
-
+module.exports = server;
