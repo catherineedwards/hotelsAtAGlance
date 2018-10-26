@@ -1,10 +1,10 @@
 const express = require("express");
 const hbs = require("express-handlebars");
 const routes = require("./routes");
-const FS = require("fs");
+
 const server = express();
 const data = require("./data.json");
-const answersFile = require("./answers.json");
+
 server.engine(
   "hbs",
   hbs({
@@ -22,27 +22,17 @@ server.use(express.static(__dirname + "/public"));
 
 server.get("/", (req, res) => res.render("hotel", homePage));
 
-server.get("/hotel/:id", (req, res) =>
-  res.render("hotel" + req.params.id, homePage)
-);
-server.post("/hotel/:id", (req, res) => {
-  const answers = req.body;
-  answers.hotelId = req.params.id;
-  console.log(answers);
-  res.send("Thank you for your review");
-  updateAnswers(answers);
-});
-function updateAnswers(answersFile) {
-  FS.writeFile(
-    "./answers.json",
-    JSON.stringify(answersFile, null, "\t"),
-    err => {
-      if (err) {
-        console.log("error call", err);
-      }
-    }
-  );
-  return;
-}
+server.get("/hotel1", (req, res) => res.render("hotel1", homePage));
+server.post('/hotel1', (req, res) => {
+res.send('Thank you for your review')});
 
-module.exports = server;
+server.get("/hotel2", (req, res) => res.render("hotel2", homePage));
+server.post('/hotel2', (req, res) => {
+res.send('Thank you for your review')});
+
+server.get("/hotel3", (req, res) => res.render("hotel3", homePage));
+server.post('/hotel3', (req, res) => {
+res.send('Thank you for your review')});
+
+module.exports = server
+
