@@ -19,6 +19,7 @@ const homePage = {
 };
 
 server.use(express.static(__dirname + "/public"));
+server.use(express.urlencoded({extended:true}));
 
 server.get("/", (req, res) => res.render("hotel", homePage));
 
