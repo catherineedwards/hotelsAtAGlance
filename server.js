@@ -18,7 +18,7 @@ const homePage = {
   list: ""
 };
 
-
+server.use(express.static(__dirname + "/public"));
 
 server.get("/", (req, res) => res.render("hotel", homePage));
 
