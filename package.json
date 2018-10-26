@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "express": "^4.16.2",
-    "express-handlebars":"^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "jest": "^22.0.6",
@@ -20,6 +21,8 @@
     "supertest": "^3.1.0"
   },
   "jest": {
-    "watchPathIgnorePatterns": ["data.json"]
+    "watchPathIgnorePatterns": [
+      "data.json"
+    ]
   }
 }
