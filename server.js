@@ -26,11 +26,11 @@ server.get("/hotel1", (req, res) => res.render("hotel1", homePage));
 server.post('/hotel1', (req, res) => {
 res.send('Thank you for your review')});
 
-server.get("/hotel2", (req, res) => res.render("hotel1", homePage));
+server.get("/hotel2", (req, res) => res.render("hotel2", homePage));
 server.post('/hotel2', (req, res) => {
 res.send('Thank you for your review')});
 
-server.get("/hotel3", (req, res) => res.render("hotel1", homePage));
+server.get("/hotel3", (req, res) => res.render("hotel3", homePage));
 server.post('/hotel3', (req, res) => {
 res.send('Thank you for your review')});
 
