@@ -1,10 +1,10 @@
 const express = require("express");
 const hbs = require("express-handlebars");
 const routes = require("./routes");
-
+const FS = require("fs");
 const server = express();
 const data = require("./data.json");
-
+const answersFile = require("./answers.json");
 server.engine(
   "hbs",
   hbs({
@@ -26,10 +26,23 @@ server.get("/hotel/:id", (req, res) =>
   res.render("hotel" + req.params.id, homePage)
 );
 server.post("/hotel/:id", (req, res) => {
-  let answers = req.body;
+  const answers = req.body;
   answers.hotelId = req.params.id;
   console.log(answers);
   res.send("Thank you for your review");
+  updateAnswers(answers);
 });
+function updateAnswers(answersFile) {
+  FS.writeFile(
+    "./answers.json",
+    JSON.stringify(answersFile, null, "\t"),
+    err => {
+      if (err) {
+        console.log("error call", err);
+      }
+    }
+  );
+  return;
+}
 
 module.exports = server;
